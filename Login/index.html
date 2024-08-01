@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/house-chimney_9246364.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+<body>
+    <form id="loginForm">
+        <h2>Log In</h2>
+        <label for="email"></label>
+        <input type="email" name="email" id="email" required autocomplete="off" placeholder="Email">
+        <div id="emailError" class="errorMsg"></div>
+
+        <label for="password"></label>
+        <input type="password" name="password" id="password" required placeholder="Password">
+        <div id="passwordError" class="errorMsg"></div>
+
+        <label for="confirmPassword"></label>
+        <input type="password" name="confirmPassword" id="confirmPassword" required placeholder="Confirm password">
+        <div id="confirmPasswordError" class="errorMsg"></div>
+        <span id="show-hide">Show/Hide</span>
+        <input type="submit" value="Log In">
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
