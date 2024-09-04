@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Climax</title>
+    <link rel="stylesheet" href="style5.css" />
+    <link rel="shortcut icon" href="/assets/clima.png" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/aed644050c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <button id="theme-toggle-btn">
+        <i id="theme-icon" class="fa-solid fa-sun"></i>
+        <i
+          id="theme-icon-dark"
+          class="fa-solid fa-moon"
+          style="display: none"
+        ></i>
+      </button>
+      <h1>App de Clima</h1>
+      <div class="weather-box">
+        <input type="text" id="city-input" placeholder="Ingresa tu ciudad" />
+        <button id="get-weather-btn">Obtener Clima</button>
+        <div id="weather-result">
+          <h2 id="city-name"></h2>
+          <p id="temperature"></p>
+          <p id="description"></p>
+          <img id="weather-icon" alt="Icono del clima" />
+        </div>
+      </div>
+    </div>
+    <script src="script5.js"></script>
+  </body>
+</html>
