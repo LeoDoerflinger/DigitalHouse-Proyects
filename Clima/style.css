@@ -29,6 +29,8 @@ body {
   padding: 20px;
   border-radius: 10px;
   color: var(--text-color);
+  max-width: 90%;
+  width: 400px;
 }
 
 .weather-box {
@@ -39,7 +41,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   border: none;
-  width: 80%;
+  width: calc(100% - 22px); /* Ajustar para que no se desborde en pantallas pequeñas */
   margin-bottom: 10px;
   color: var(--text-color); /* Color del texto en el input */
   background-color: var(--card-background); /* Fondo del input */
@@ -53,7 +55,7 @@ body {
   color: white;
   cursor: pointer;
   font-size: 16px;
-  margin: 0 5px;
+  margin: 5px;
 }
 
 #get-weather-btn:hover, #get-location-btn:hover {
@@ -71,9 +73,9 @@ body {
 }
 
 #weather-icon {
-  width: 120px;
-  height: 120px;
-  margin: -30px;
+  width: 100px;
+  height: 100px;
+  margin: -20px;
 }
 
 #theme-toggle-btn {
@@ -95,4 +97,24 @@ body {
 
 #theme-icon-dark {
   display: none; /* Inicialmente, oculta el ícono de luna */
+}
+
+/* Media Queries para hacer el diseño responsive */
+@media (max-width: 600px) {
+  #city-input {
+    width: calc(100% - 20px); /* Ajustar el ancho en pantallas pequeñas */
+  }
+
+  #weather-result {
+    width: 100%; /* Asegura que el resultado del clima ocupe el 100% del contenedor */
+  }
+
+  #weather-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  #theme-toggle-btn {
+    font-size: 20px; /* Ajusta el tamaño del ícono en pantallas pequeñas */
+  }
 }
