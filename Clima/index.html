@@ -6,25 +6,21 @@
     <title>Climax</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
-    <script
-      src="https://kit.fontawesome.com/aed644050c.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/aed644050c.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="container">
+      <!-- Botón para cambiar entre tema claro y oscuro -->
       <button id="theme-toggle-btn">
         <i id="theme-icon" class="fa-solid fa-sun"></i>
-        <i
-          id="theme-icon-dark"
-          class="fa-solid fa-moon"
-          style="display: none"
-        ></i>
+        <i id="theme-icon-dark" class="fa-solid fa-moon" style="display: none;"></i>
       </button>
       <h1>App de Clima</h1>
       <div class="weather-box">
         <input type="text" id="city-input" placeholder="Ingresa tu ciudad" />
         <button id="get-weather-btn">Obtener Clima</button>
+        <!-- Botón para obtener el clima basado en la ubicación actual -->
+        <button id="get-location-btn">Obtener Clima Actual</button>
         <div id="weather-result">
           <h2 id="city-name"></h2>
           <p id="temperature"></p>

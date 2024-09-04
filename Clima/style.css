@@ -1,13 +1,13 @@
 :root {
-  --background-color: #0b95f2;
-  --text-color: #000000;
-  --card-background: darkgrey;
+  --background-color: #0b95f2; /* Color de fondo para el tema claro */
+  --text-color: #000000; /* Color del texto para el tema claro */
+  --card-background: darkgrey; /* Fondo de las tarjetas para el tema claro */
 }
 
 .dark-theme {
-  --background-color: #1a1a1a;
-  --text-color: #ffffff;
-  --card-background: #333333;
+  --background-color: #1a1a1a; /* Color de fondo para el tema oscuro */
+  --text-color: #ffffff; /* Color del texto para el tema oscuro */
+  --card-background: #333333; /* Fondo de las tarjetas para el tema oscuro */
 }
 
 body {
@@ -23,7 +23,7 @@ body {
 }
 
 .container {
-  position: relative; /* Esto es necesario para que el botón se posicione de manera absoluta dentro del contenedor */
+  position: relative; /* Necesario para posicionar el botón de cambio de tema dentro del contenedor */
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
@@ -41,11 +41,11 @@ body {
   border: none;
   width: 80%;
   margin-bottom: 10px;
-  color: var(--text-color); /* Cambiar el color del texto en el input */
-  background-color: var(--card-background); /* Cambiar el fondo del input */
+  color: var(--text-color); /* Color del texto en el input */
+  background-color: var(--card-background); /* Fondo del input */
 }
 
-#get-weather-btn {
+#get-weather-btn, #get-location-btn {
   padding: 10px 20px;
   background-color: #0072ff;
   border: none;
@@ -53,9 +53,10 @@ body {
   color: white;
   cursor: pointer;
   font-size: 16px;
+  margin: 0 5px;
 }
 
-#get-weather-btn:hover {
+#get-weather-btn:hover, #get-location-btn:hover {
   background-color: #36b500;
 }
 
@@ -83,7 +84,7 @@ body {
   border: none;
   cursor: pointer;
   color: var(--text-color);
-  font-size: 24px; /* Ajusta el tamaño del ícono */
+  font-size: 24px; /* Tamaño del ícono */
   display: flex; /* Alinea los íconos horizontalmente */
   align-items: center;
 }
