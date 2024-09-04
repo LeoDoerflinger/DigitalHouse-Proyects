@@ -1,15 +1,21 @@
+/* Variables de color */
 :root {
   --background-color: #0b95f2; /* Color de fondo para el tema claro */
   --text-color: #000000; /* Color del texto para el tema claro */
   --card-background: darkgrey; /* Fondo de las tarjetas para el tema claro */
+  --footer-background: #000000; /* Fondo del footer para el tema claro */
+  --footer-text-color: #ffffff; /* Color del texto del footer para el tema claro */
 }
 
 .dark-theme {
   --background-color: #1a1a1a; /* Color de fondo para el tema oscuro */
   --text-color: #ffffff; /* Color del texto para el tema oscuro */
   --card-background: #333333; /* Fondo de las tarjetas para el tema oscuro */
+  --footer-background: #ffffff; /* Fondo del footer para el tema oscuro */
+  --footer-text-color: #000000; /* Color del texto del footer para el tema oscuro */
 }
 
+/* Estilos para el cuerpo */
 body {
   font-family: Arial, sans-serif;
   background-color: var(--background-color);
@@ -17,11 +23,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
+  overflow: hidden; /* Evita que aparezcan barras de desplazamiento */
   transition: background-color 0.5s, color 0.5s;
+  position: relative; /* Asegura que el footer se posicione correctamente */
 }
 
+/* Estilos para el contenedor */
 .container {
   position: relative; /* Necesario para posicionar el botón de cambio de tema dentro del contenedor */
   text-align: center;
@@ -30,14 +39,17 @@ body {
   border-radius: 10px;
   color: var(--text-color);
   width: 100%; /* Ancho completo en pantallas pequeñas */
-  max-width: 400px; /* Ancho máximo del contenedor para pantallas grandes */
+  max-width: 90%; /* Ancho máximo del contenedor para pantallas grandes */
   box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  margin-bottom: 60px; /* Espacio suficiente para el footer */
 }
 
+/* Estilos para la caja del clima */
 .weather-box {
   margin-top: 20px;
 }
 
+/* Estilos para el input de ciudad */
 #city-input {
   padding: 10px;
   border-radius: 5px;
@@ -49,7 +61,9 @@ body {
   box-sizing: border-box; /* Incluye padding en el ancho del input */
 }
 
-#get-weather-btn, #get-location-btn {
+/* Estilos para los botones */
+#get-weather-btn,
+#get-location-btn {
   padding: 10px 20px;
   background-color: #0072ff;
   border: none;
@@ -60,10 +74,12 @@ body {
   margin: 5px;
 }
 
-#get-weather-btn:hover, #get-location-btn:hover {
+#get-weather-btn:hover,
+#get-location-btn:hover {
   background-color: #36b500;
 }
 
+/* Estilos para el resultado del clima */
 #weather-result {
   margin-top: 20px;
   display: none;
@@ -76,11 +92,13 @@ body {
   box-sizing: border-box; /* Incluye padding en el ancho del resultado */
 }
 
+/* Estilos para el ícono del clima */
 #weather-icon {
   width: 100px; /* Tamaño reducido para pantallas pequeñas */
   height: 100px;
 }
 
+/* Estilos para el botón de cambio de tema */
 #theme-toggle-btn {
   position: absolute;
   top: 10px;
@@ -100,6 +118,31 @@ body {
 
 #theme-icon-dark {
   display: none; /* Inicialmente, oculta el ícono de luna */
+}
+
+/* Estilos para el footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: var(--footer-text-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 /* Media Queries para hacer el diseño responsive */
@@ -133,7 +176,8 @@ body {
     padding: 8px; /* Ajusta el padding en pantallas muy pequeñas */
   }
 
-  #get-weather-btn, #get-location-btn {
+  #get-weather-btn,
+  #get-location-btn {
     font-size: 14px; /* Ajusta el tamaño de fuente de los botones */
     padding: 8px 16px; /* Ajusta el padding de los botones */
   }
