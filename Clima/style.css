@@ -31,6 +31,7 @@ body {
   color: var(--text-color);
   width: 100%; /* Ancho completo en pantallas pequeñas */
   max-width: 400px; /* Ancho máximo del contenedor para pantallas grandes */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
 
 .weather-box {
@@ -41,10 +42,11 @@ body {
   padding: 10px;
   border-radius: 5px;
   border: none;
-  width: calc(100% - 22px); /* Ajustar para que no se desborde en pantallas pequeñas */
+  width: 100%; /* Ajuste del ancho completo en pantallas pequeñas */
   margin-bottom: 10px;
   color: var(--text-color); /* Color del texto en el input */
   background-color: var(--card-background); /* Fondo del input */
+  box-sizing: border-box; /* Incluye padding en el ancho del input */
 }
 
 #get-weather-btn, #get-location-btn {
@@ -70,6 +72,8 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: background-color 0.5s;
+  width: 100%; /* Ajusta al ancho del contenedor */
+  box-sizing: border-box; /* Incluye padding en el ancho del resultado */
 }
 
 #weather-icon {
@@ -120,5 +124,28 @@ body {
 
   #theme-toggle-btn {
     font-size: 20px; /* Ajusta el tamaño del ícono en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 320px) {
+  #city-input {
+    font-size: 14px; /* Ajusta el tamaño de fuente en pantallas muy pequeñas */
+    padding: 8px; /* Ajusta el padding en pantallas muy pequeñas */
+  }
+
+  #get-weather-btn, #get-location-btn {
+    font-size: 14px; /* Ajusta el tamaño de fuente de los botones */
+    padding: 8px 16px; /* Ajusta el padding de los botones */
+  }
+
+  #weather-icon {
+    width: 60px; /* Tamaño aún más reducido para pantallas muy pequeñas */
+    height: 60px;
+  }
+
+  #theme-toggle-btn {
+    font-size: 18px; /* Ajusta el tamaño del ícono del botón de tema */
+    top: 5px; /* Ajusta la posición vertical del botón de tema */
+    right: 5px; /* Ajusta la posición horizontal del botón de tema */
   }
 }
