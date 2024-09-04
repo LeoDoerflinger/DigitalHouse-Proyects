@@ -1,40 +1,51 @@
-document.getElementById("get-weather-btn").addEventListener("click", function () {
-  const apiKey = "020c01d6e6dfa1a6901226ce1fe2cb2d"; // Reemplaza con tu clave de API de OpenWeatherMap
-  const city = document.getElementById("city-input").value.trim();
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&appid=${apiKey}`;
+document
+  .getElementById("get-weather-btn")
+  .addEventListener("click", function () {
+    const apiKey = "020c01d6e6dfa1a6901226ce1fe2cb2d"; // Reemplaza con tu clave de API de OpenWeatherMap
+    const city = document.getElementById("city-input").value.trim();
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&appid=${apiKey}`;
 
-  if (city === "") {
-    alert("Por favor, ingresa una ciudad.");
-    return;
-  }
+    if (city === "") {
+      alert("Por favor, ingresa una ciudad.");
+      return;
+    }
 
-  fetchWeather(url);
-});
+    fetchWeather(url);
+  });
 
-document.getElementById("get-location-btn").addEventListener("click", function () {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-      const apiKey = "020c01d6e6dfa1a6901226ce1fe2cb2d"; // Reemplaza con tu clave de API de OpenWeatherMap
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=${apiKey}`;
+document
+  .getElementById("get-location-btn")
+  .addEventListener("click", function () {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          const apiKey = "020c01d6e6dfa1a6901226ce1fe2cb2d"; // Reemplaza con tu clave de API de OpenWeatherMap
+          const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=${apiKey}`;
 
-      fetchWeather(url);
-    }, function (error) {
-      alert("Error al obtener la ubicación. Asegúrate de permitir el acceso a tu ubicación.");
-      console.error("Error:", error);
-    });
-  } else {
-    alert("La geolocalización no está soportada en tu navegador.");
-  }
-});
+          fetchWeather(url);
+        },
+        function (error) {
+          alert(
+            "Error al obtener la ubicación. Asegúrate de permitir el acceso a tu ubicación."
+          );
+          console.error("Error:", error);
+        }
+      );
+    } else {
+      alert("La geolocalización no está soportada en tu navegador.");
+    }
+  });
 
 function fetchWeather(url) {
   fetch(url)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       if (data.cod === "404") {
-        alert("Ciudad no encontrada. Verifica la ortografía o intenta con otra ciudad.");
+        alert(
+          "Ciudad no encontrada. Verifica la ortografía o intenta con otra ciudad."
+        );
         console.error(data.message);
         return;
       }
@@ -51,34 +62,58 @@ function fetchWeather(url) {
 
       // Convertir la temperatura a un número entero
       const temperature = parseInt(data.main.temp);
-      document.getElementById("temperature").textContent = `Temperatura: ${temperature}°C`;
+      document.getElementById(
+        "temperature"
+      ).textContent = `Temperatura: ${temperature}°C`;
 
       // Convertir la descripción del clima a mayúsculas
       const description = data.weather[0].description.toUpperCase();
       document.getElementById("description").textContent = description;
 
       // Usar íconos de mayor resolución (4x)
-      document.getElementById("weather-icon").src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
+      document.getElementById(
+        "weather-icon"
+      ).src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
+
+      // Calcular si es de noche
+      const now = new Date().getTime() / 1000; // Hora actual en segundos
+      const sunrise = data.sys.sunrise;
+      const sunset = data.sys.sunset;
+      const isNight = now < sunrise || now > sunset;
+
+      // Mostrar un mensaje si es de noche
+      const nightMessage = isNight
+        ? "Es de noche en esta ubicación."
+        : "Es de día en esta ubicación.";
+      document.getElementById(
+        "description"
+      ).textContent += ` - ${nightMessage}`;
+
       document.getElementById("weather-result").style.display = "block";
     })
-    .catch(error => {
-      alert("Error al obtener el clima. Revisa tu conexión a internet o intenta nuevamente.");
+
+    .catch((error) => {
+      alert(
+        "Error al obtener el clima. Revisa tu conexión a internet o intenta nuevamente."
+      );
       console.error("Error:", error);
     });
 }
 
-document.getElementById("theme-toggle-btn").addEventListener("click", function () {
-  const isDarkTheme = document.body.classList.toggle("dark-theme");
+document
+  .getElementById("theme-toggle-btn")
+  .addEventListener("click", function () {
+    const isDarkTheme = document.body.classList.toggle("dark-theme");
 
-  // Cambiar el ícono del botón según el tema activo
-  const themeIconLight = document.getElementById("theme-icon");
-  const themeIconDark = document.getElementById("theme-icon-dark");
+    // Cambiar el ícono del botón según el tema activo
+    const themeIconLight = document.getElementById("theme-icon");
+    const themeIconDark = document.getElementById("theme-icon-dark");
 
-  if (isDarkTheme) {
-    themeIconLight.style.display = "none";
-    themeIconDark.style.display = "inline"; // Muestra el ícono de luna
-  } else {
-    themeIconLight.style.display = "inline"; // Muestra el ícono de sol
-    themeIconDark.style.display = "none";
-  }
-});
+    if (isDarkTheme) {
+      themeIconLight.style.display = "none";
+      themeIconDark.style.display = "inline"; // Muestra el ícono de luna
+    } else {
+      themeIconLight.style.display = "inline"; // Muestra el ícono de sol
+      themeIconDark.style.display = "none";
+    }
+  });
