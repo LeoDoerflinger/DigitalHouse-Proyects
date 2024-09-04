@@ -21,27 +21,25 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  overflow: hidden; /* Evita que aparezcan barras de desplazamiento */
   transition: background-color 0.5s, color 0.5s;
-  position: relative; /* Asegura que el footer se posicione correctamente */
 }
 
 /* Estilos para el contenedor */
 .container {
-  position: relative; /* Necesario para posicionar el botón de cambio de tema dentro del contenedor */
+  flex: 1;
+  position: relative;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
   color: var(--text-color);
-  width: 100%; /* Ancho completo en pantallas pequeñas */
-  max-width: 90%; /* Ancho máximo del contenedor para pantallas grandes */
-  box-sizing: border-box; /* Incluye padding y border en el ancho total */
-  margin-bottom: 60px; /* Espacio suficiente para el footer */
+  width: 100%;
+  max-width: 600px; /* Tamaño máximo fijo para evitar que ocupe todo el espacio */
+  box-sizing: border-box;
+  margin: 20px auto; /* Centra el contenedor horizontalmente */
 }
 
 /* Estilos para la caja del clima */
@@ -54,11 +52,11 @@ body {
   padding: 10px;
   border-radius: 5px;
   border: none;
-  width: 100%; /* Ajuste del ancho completo en pantallas pequeñas */
+  width: 100%;
   margin-bottom: 10px;
-  color: var(--text-color); /* Color del texto en el input */
-  background-color: var(--card-background); /* Fondo del input */
-  box-sizing: border-box; /* Incluye padding en el ancho del input */
+  color: var(--text-color);
+  background-color: var(--card-background);
+  box-sizing: border-box;
 }
 
 /* Estilos para los botones */
@@ -88,13 +86,13 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: background-color 0.5s;
-  width: 100%; /* Ajusta al ancho del contenedor */
-  box-sizing: border-box; /* Incluye padding en el ancho del resultado */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Estilos para el ícono del clima */
 #weather-icon {
-  width: 100px; /* Tamaño reducido para pantallas pequeñas */
+  width: 100px;
   height: 100px;
 }
 
@@ -107,29 +105,27 @@ body {
   border: none;
   cursor: pointer;
   color: var(--text-color);
-  font-size: 24px; /* Tamaño del ícono */
-  display: flex; /* Alinea los íconos horizontalmente */
+  font-size: 24px;
+  display: flex;
   align-items: center;
 }
 
 #theme-toggle-btn i {
-  margin: 0; /* Elimina el margen por defecto */
+  margin: 0;
 }
 
 #theme-icon-dark {
-  display: none; /* Inicialmente, oculta el ícono de luna */
+  display: none;
 }
 
 /* Estilos para el footer */
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   background-color: var(--footer-background);
   color: var(--footer-text-color);
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: auto; /* Empuja el footer hacia abajo */
 }
 
 footer p {
@@ -148,48 +144,48 @@ footer a:hover {
 /* Media Queries para hacer el diseño responsive */
 @media (max-width: 600px) {
   .container {
-    width: 90%; /* Ancho del 90% en pantallas pequeñas */
-    max-width: 100%; /* Asegura que el contenedor no sea más ancho que el viewport */
+    width: 90%; /* Asegura que no sea demasiado ancho en pantallas pequeñas */
+    max-width: 100%;
   }
 
   #city-input {
-    width: 100%; /* Asegura que el input ocupe el ancho completo del contenedor */
+    width: 100%;
   }
 
   #weather-result {
-    width: 100%; /* Asegura que el resultado del clima ocupe el 100% del contenedor */
+    width: 100%;
   }
 
   #weather-icon {
-    width: 80px; /* Tamaño reducido para pantallas pequeñas */
+    width: 80px;
     height: 80px;
   }
 
   #theme-toggle-btn {
-    font-size: 20px; /* Ajusta el tamaño del ícono en pantallas pequeñas */
+    font-size: 20px;
   }
 }
 
 @media (max-width: 320px) {
   #city-input {
-    font-size: 14px; /* Ajusta el tamaño de fuente en pantallas muy pequeñas */
-    padding: 8px; /* Ajusta el padding en pantallas muy pequeñas */
+    font-size: 14px;
+    padding: 8px;
   }
 
   #get-weather-btn,
   #get-location-btn {
-    font-size: 14px; /* Ajusta el tamaño de fuente de los botones */
-    padding: 8px 16px; /* Ajusta el padding de los botones */
+    font-size: 14px;
+    padding: 8px 16px;
   }
 
   #weather-icon {
-    width: 60px; /* Tamaño aún más reducido para pantallas muy pequeñas */
+    width: 60px;
     height: 60px;
   }
 
   #theme-toggle-btn {
-    font-size: 18px; /* Ajusta el tamaño del ícono del botón de tema */
-    top: 5px; /* Ajusta la posición vertical del botón de tema */
-    right: 5px; /* Ajusta la posición horizontal del botón de tema */
+    font-size: 18px;
+    top: 5px;
+    right: 5px;
   }
 }
