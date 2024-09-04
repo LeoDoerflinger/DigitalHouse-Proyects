@@ -29,8 +29,8 @@ body {
   padding: 20px;
   border-radius: 10px;
   color: var(--text-color);
-  max-width: 90%;
-  width: 400px;
+  width: 100%; /* Ancho completo en pantallas pequeñas */
+  max-width: 400px; /* Ancho máximo del contenedor para pantallas grandes */
 }
 
 .weather-box {
@@ -73,9 +73,8 @@ body {
 }
 
 #weather-icon {
-  width: 100px;
+  width: 100px; /* Tamaño reducido para pantallas pequeñas */
   height: 100px;
-  margin: -20px;
 }
 
 #theme-toggle-btn {
@@ -101,8 +100,13 @@ body {
 
 /* Media Queries para hacer el diseño responsive */
 @media (max-width: 600px) {
+  .container {
+    width: 90%; /* Ancho del 90% en pantallas pequeñas */
+    max-width: 100%; /* Asegura que el contenedor no sea más ancho que el viewport */
+  }
+
   #city-input {
-    width: calc(100% - 20px); /* Ajustar el ancho en pantallas pequeñas */
+    width: 100%; /* Asegura que el input ocupe el ancho completo del contenedor */
   }
 
   #weather-result {
@@ -110,7 +114,7 @@ body {
   }
 
   #weather-icon {
-    width: 80px;
+    width: 80px; /* Tamaño reducido para pantallas pequeñas */
     height: 80px;
   }
 
