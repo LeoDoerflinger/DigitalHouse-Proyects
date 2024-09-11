@@ -1,0 +1,112 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+}
+ul {
+  display: flex;
+  text-decoration: dotted;
+  gap: 15px;
+  font-weight: bolder;
+}
+li {
+  list-style: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+#titulo {
+    font-size: 50px;
+  text-align: center;
+  margin: 20px;
+}
+
+img {
+  width: 500px;
+}
+
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#logo {
+  width: 70px;
+}
+
+#nosotros {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-top: 20px;
+}
+#nosotros div {
+  background-color: #111111;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#contactanos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70px 0 30px 0;
+}
+
+input {
+    color: white;
+  background: none;
+  border-radius: 0 20px;
+  text-align: center;
+  height: 20px;
+}
+
+#mail,
+#telefono {
+  width: 200px;
+  margin-top: 10px;
+}
+
+#consulta {
+  height: 30px;
+  width: 400px;
+  margin-top: 10px;
+}
+
+#enviar {
+  color: white;
+  background-color: #111111;
+  height: 20px;
+  margin: 10px;
+}
+
+footer {
+  background-color: #111111;
+  color: white;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#ig {
+  color: white;
+  font-size: 20px;
+}
